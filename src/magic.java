@@ -36,18 +36,20 @@ class magic {
     public static void sort(int a[], int step) {
         for (int i = 1; i <= 9; i++) {
             a[step] = i;
-            if (step == 8)
+            if (step == 8) {
                 rule(a);
-            if (step < 8)
+                return;
+            }
+            if (step < 8) {
                 sort(a, (step + 1));
-                System.out.println(step);
+                //System.out.print("["+step+"]");
+            }
         }
     }
 
     public static void main(String args[]) {
         int a[] = new int[9];
         int step = 0;
-        Arrays.fill(a, 0);
         sort(a, step);
     }
 }

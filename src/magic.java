@@ -2,11 +2,17 @@ import java.util.Arrays;
 
 class magic {
     public static void rule(int a[]) {
+        /*
+        for(int i = 0; i < 9; i++)
+            System.out.print(a[i]);
+        System.out.println();
+        */
+
         for (int i = 0; i < 3; i++) {
-            if (a[0 + i] + a[1 + i] + a[2 + i] != 15 ||
-                    a[0 + i] + a[3 + i] + a[6 + i] != 15 ||
-                    a[0] + a[4] + a[8] != 15 ||
-                    a[0] + a[1] + a[2] != 15)
+            if (((a[0 + i] + a[1 + i] + a[2 + i]) != 15) ||
+                    ((a[0 + i] + a[3 + i] + a[6 + i]) != 15) ||
+                    ((a[0] + a[4] + a[8] != 15)) ||
+                    ((a[0] + a[1] + a[2]) != 15))
                 return;
         }
         boolean con = false;
@@ -34,6 +40,7 @@ class magic {
     }
 
     public static void sort(int a[], int step) {
+        //System.out.print(step);
         for (int i = 1; i <= 9; i++) {
             a[step] = i;
             if (step == 8) {
@@ -43,6 +50,7 @@ class magic {
             if (step < 8) {
                 sort(a, (step + 1));
                 //System.out.print("["+step+"]");
+                continue;
             }
         }
     }

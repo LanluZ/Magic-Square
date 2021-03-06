@@ -4,8 +4,7 @@ import java.io.IOException;
 class magic {
     public static void main(String args[]) throws IOException {
         System.out.print("1.2x2\n2.3x3\n3.4x4\n");
-        int sel=System.in.read();
-
+        int sel = System.in.read();
         switch(sel){
             //1
             case 49:{

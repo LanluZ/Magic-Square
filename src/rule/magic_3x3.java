@@ -41,12 +41,21 @@ public class magic_3x3 {
         return;
     }
 
+    public static boolean circulate(int a[], int step) {
+        for (int j = 0; j < step; j++)
+            if (a[j] == a[step])
+                return true;
+        return false;
+    }
+
     public static void sort(int a[], int step) {
         for (int i = 1; i <= 9; i++) {
             a[step] = i;
             if (step == 8) {
                 rule(a);
             }
+            if (circulate(a, step-1))
+                break;
             if (step < 8) {
                 sort(a, (step + 1));
                 continue;

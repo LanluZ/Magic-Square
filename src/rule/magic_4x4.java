@@ -1,4 +1,5 @@
 package rule;
+import rule.exchange;
 
 public class magic_4x4 {
     public static void rule(int a[]) {
@@ -10,36 +11,29 @@ public class magic_4x4 {
         System.out.println();
         */
 
+        //获取二维数组
+        int b[][] = exchange.InOut(a);
+
+        //判断合法
+        for (int i = 0; i < 3; i++) {
+            if (
+                    b[i][0] + b[i][1] + b[i][2] + b[i][3] != 34 ||
+                            b[0][i] + b[1][i] + b[2][i] + b[3][i] != 34
+            ) return;
+        }
+        if (
+                b[0][0] + b[1][1] + b[2][2] + b[3][3] != 34 ||
+                        b[0][2] + b[1][1] + b[2][0] + b[3][0] != 34
+        ) return;
+
+        //打印
         for (int i = 0; i < 4; i++) {
-            if (a[0 + i * 4] + a[1 + i * 4] + a[2 + i * 4] + a[3 + i * 4] != 34 ||
-                    a[0 + i] + a[4 + i] + a[8 + i] + a[12 + i] != 15 ||
-                    a[0] + a[5] + a[10] + a[15] != 15 ||
-                    a[3] + a[6] + a[9] + a[12] != 15)
-                return;
+            for (int j = 0; j < 4; j++)
+                System.out.print(b[i][j] + "\t");
+            System.out.println();
         }
+        System.out.println("---------");
 
-        boolean con = true;
-        for (int i = 0, j = 0; i < 16; j++) {
-            if (j >= 16) {
-                j = 0;
-                i++;
-            }
-            if (i == j || i == 16)
-                continue;
-            if (a[i] == a[j]) {
-                con = false;
-                break;
-            }
-        }
-
-        if (con == true) {
-            System.out.println("-----");
-            for (int i = 0; i < 16; i++) {
-                System.out.print(a[i] + ",");
-                if ((i % 4) == 3)
-                    System.out.println();
-            }
-        }
         return;
     }
 
@@ -56,7 +50,7 @@ public class magic_4x4 {
             if (step == 15) {
                 rule(a);
             }
-            if (circulate(a, step-1))
+            if (circulate(a, step - 1))
                 break;
             if (step < 15) {
                 sort(a, (step + 1));

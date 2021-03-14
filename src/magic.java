@@ -1,4 +1,5 @@
 import rule.*;
+
 import java.io.IOException;
 
 class magic {

@@ -32,18 +32,18 @@ public class exchange {
         return null;
     }
 
-    //镜像
+    //镜像(对角线)
     private static int[][] Mirror(int[][] a) {
         int cache;
-        for(int x=0;x<a.length;x++){
-            for(int y=0;y<a[0].length/2;y++){
+        for (int x = 0; x < a.length; x++) {
+            for (int y = 0; y < a[0].length / 2; y++) {
                 //保存左边的
-                cache=a[x][y];
+                cache = a[x][y];
                 //把右边的换到左边
-                int ry=a[0].length-1-y;
-                a[x][y]=a[x][ry];
+                int ry = a[0].length - 1 - y;
+                a[x][y] = a[x][ry];
                 //把左边的换到右边
-                a[x][ry]=cache;
+                a[x][ry] = cache;
             }
         }
         return a;
@@ -54,7 +54,7 @@ public class exchange {
         int[][] temp = new int[b[0].length][b.length];
         for (int i = 0; i < b.length; i++) {
             for (int j = 0; j < b[i].length; j++) {
-                temp[i][j]=b[b[i].length-j-1][i];
+                temp[i][j] = b[b[i].length - j - 1][i];
             }
         }
         return temp;
@@ -63,7 +63,7 @@ public class exchange {
     //打印
     public static void C_Print(int[][] a) {
         //镜像
-        for (int mirror = 0; mirror<2; mirror++) {
+        for (int mirror = 0; mirror < 2; mirror++) {
             //旋转
             for (int rotate = 0; rotate < 4; rotate++) {
                 //打印

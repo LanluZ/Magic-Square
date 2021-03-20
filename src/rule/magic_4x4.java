@@ -1,27 +1,14 @@
 package rule;
 
-public class magic_4x4 {
+public class magic_4x4 extends judgement {
     public static void rule(int[] a) {
-
-        //bug检查
-//        for(int i = 0; i < 16; i++)
-//            System.out.print(a[i]+" ");
-//        System.out.println();
 
         //获取二维数组
         int[][] b = exchange.InOut(a);
 
         //判断合法
-        for (int i = 0; i < 3; i++) {
-            if (
-                    b[i][0] + b[i][1] + b[i][2] + b[i][3] != 34 ||
-                            b[0][i] + b[1][i] + b[2][i] + b[3][i] != 34
-            ) return;
-        }
-        if (
-                b[0][0] + b[1][1] + b[2][2] + b[3][3] != 34 ||
-                        b[0][2] + b[1][1] + b[2][0] + b[3][0] != 34
-        ) return;
+        if (judgement(b, 3))
+            return;
 
         //打印
         exchange.C_Print(b);
